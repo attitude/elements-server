@@ -1,0 +1,30 @@
+{
+    "name": "attitude/Elements/Server",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/attitude/elements"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/attitude/elements-api"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/attitude/elements-request"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/attitude/elements-singleton"
+        }
+    ],
+    "require": {
+        "attitude/Elements": "0.1.*",
+        "attitude/Elements/Boot": "0.1.*",
+        "attitude/Elements/API": "0.1.*",
+        "attitude/Elements/Request": "0.1.*",
+        "attitude/Elements/Singleton": "0.1.*"
+    }
+}

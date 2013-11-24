@@ -22,7 +22,7 @@
     ],
     "require": {
         "attitude/Elements": "0.1.*",
-        "attitude/Elements/Boot": "0.1.*",
+        "attitude/Elements/Boot": ">=0.1.1",
         "attitude/Elements/API": "0.1.*",
         "attitude/Elements/Request": "0.1.*",
         "attitude/Elements/Singleton": "0.1.*"

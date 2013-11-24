@@ -11,12 +11,14 @@ class Server_Element extends Singleton_Prototype
 
     protected function __construct()
     {
-        Boot_Element::instance();
-//         echo json_encode($GLOBALS, JSON_PRETTY_PRINT);
+        if (!defined('BOOT_HAS_PASSED')) {
+            @header($_SERVER['SERVER_PROTOCOL'] . ' 500 Internal Server Error', true, 500);
+            @header('X-Status-Debug: Please initiate Boot sequence.');
 
-        $this->auth = \bemore\Auth_Element::instance($_SERVER['Authorization']);
+            trigger_error('Please initiate sequence via `Boot_Element::instance();`', E_USER_ERROR);
 
-        DependencyContainer::set('Auth', $this->auth);
+            die;
+        }
 
         $_request = new Request_Element(
             $_SERVER['REQUEST_METHOD'],
@@ -33,6 +35,13 @@ class Server_Element extends Singleton_Prototype
         } catch (HTTPException $e) {
             throw $e;
         }
+
+        return $this;
+    }
+
+    public function setAuth(Auth_Element $dependency)
+    {
+        $this->auth = $dependency;
 
         return $this;
     }
